@@ -11,6 +11,7 @@ import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useForm } from "react-hook-form";
 import popcorn from "../assets/popcorn.png";
+import { useNavigate } from "react-router-dom";
 
 function Copyright(props) {
   return (
