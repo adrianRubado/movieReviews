@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import Navbar from "../components/Navbar";
 
 const Logged = () => {
   const navigate = useNavigate();
@@ -18,7 +19,11 @@ const Logged = () => {
     };
     verify();
   }, []);
-  return <div>I'm logged in</div>;
+  return (
+    <div>
+      <Navbar />
+    </div>
+  );
 };
 
 export default Logged;
