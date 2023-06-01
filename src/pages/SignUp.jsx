@@ -12,6 +12,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useForm } from "react-hook-form";
 import popcorn from "../assets/popcorn.png";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function Copyright(props) {
   return (
@@ -42,8 +43,12 @@ export default function SignUp() {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const navigate = useNavigate();
+
+  const onSubmit = async (data) => {
+    const resp = await axios.post("http://localhost:3000/api/register", data);
+    console.log(resp);
+    navigate("/thankForRegistering");
   };
 
   return (

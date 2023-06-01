@@ -13,6 +13,11 @@ import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import popcorn from "../assets/popcorn.png";
 import { useForm } from "react-hook-form";
+import axios from "axios";
+import { useSignIn, useIsAuthenticated } from "react-auth-kit";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 function Copyright(props) {
   return (
@@ -37,15 +42,40 @@ function Copyright(props) {
 const defaultTheme = createTheme();
 
 export default function SignInSide() {
+  const signIn = useSignIn();
+  const navigate = useNavigate();
+  const [login, setLogin] = useState(false);
+  const isAuthenticated = useIsAuthenticated();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
-    console.log(data.email);
+  const onSubmit = async (data) => {
+    try {
+      console.log(data);
+      const resp = await axios.post("http://localhost:3000/api/login", data);
+      if (resp.status == 200) {
+        signIn({
+          token: resp.data.token,
+          expiresIn: 60,
+          tokenType: "Bearer",
+          authState: { email: data.email },
+        });
+        navigate("/loggedIn");
+      }
+    } catch (error) {
+      console.log(error.message);
+      setLogin(true);
+    }
   };
+
+  useEffect(() => {
+    if (isAuthenticated()) {
+      navigate("/loggedIn");
+    }
+  }, []);
 
   return (
     <ThemeProvider theme={defaultTheme}>
@@ -125,6 +155,20 @@ export default function SignInSide() {
                 control={<Checkbox value="remember" color="primary" />}
                 label="Remember me"
               />
+
+              {login && (
+                <Grid sx={{ textAlign: "center" }} item xs>
+                  <Typography
+                    sx={{
+                      color: "red",
+                      fontSize: "14px",
+                    }}
+                  >
+                    Invalid credentials
+                  </Typography>
+                </Grid>
+              )}
+
               <Button
                 type="submit"
                 fullWidth
