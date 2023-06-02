@@ -68,7 +68,7 @@ function Navbar({ user }) {
   };
 
   return (
-    <AppBar sx={{ width: "100vw", overflow: "auto" }}>
+    <AppBar position="fixed">
       <Container>
         <Toolbar disableGutters>
           <img

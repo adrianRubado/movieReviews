@@ -46,7 +46,7 @@ export default function SignInSide() {
   const navigate = useNavigate();
   const [login, setLogin] = useState(false);
   const isAuthenticated = useIsAuthenticated();
-  const userState = useAuthUser();
+
   const {
     register,
     handleSubmit,

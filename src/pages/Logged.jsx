@@ -32,10 +32,22 @@ const Logged = () => {
   }, []);
   return (
     <>
-      <Navbar user={userState().email} />
-      <Hero movies={movies} />
-
-      <ResponsiveGrid movies={movies} />
+      <div
+        style={{
+          backgroundColor: " #282c34",
+          alignItems: "center",
+          justifyContent: "center",
+          color: "white",
+          marginLeft: "-8px",
+          marginRight: "-8px",
+          marginBottom: "-8px",
+          overflow: "hidden",
+        }}
+      >
+        <Navbar user={userState().email} />
+        <Hero movies={movies} />
+        <ResponsiveGrid movies={movies} />
+      </div>
     </>
   );
 };

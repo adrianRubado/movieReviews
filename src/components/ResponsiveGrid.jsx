@@ -29,7 +29,7 @@ export default function ResponsiveGrid({ movies }) {
         {movies.map((m, index) => (
           <Grid xs={2} sm={4} key={index}>
             <Item>
-              <img style={{ width: "20vw" }} src={m.poster} />
+              <img style={{ width: "10vw" }} src={m.poster} />
             </Item>
           </Grid>
         ))}
