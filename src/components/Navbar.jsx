@@ -68,13 +68,12 @@ function Navbar() {
   };
 
   return (
-    <AppBar>
-      <Container maxWidth="xl">
+    <AppBar sx={{ width: "100vw", overflow: "auto" }}>
+      <Container>
         <Toolbar disableGutters>
           <img
             src={popcorn}
             sx={{ display: { xs: "none", md: "flex" }, mr: 1 }}
-            style={{ marginRight: "20px" }}
           />
           <Typography
             variant="h6"
@@ -136,7 +135,6 @@ function Navbar() {
             component="a"
             href=""
             sx={{
-              mr: 2,
               display: { xs: "flex", md: "none" },
               flexGrow: 1,
               fontFamily: "monospace",
@@ -145,9 +143,7 @@ function Navbar() {
               color: "inherit",
               textDecoration: "none",
             }}
-          >
-            Movie Reviews
-          </Typography>
+          ></Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
               <Button
