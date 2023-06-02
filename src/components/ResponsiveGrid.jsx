@@ -18,7 +18,7 @@ export default function ResponsiveGrid({ movies }) {
         alignItems: "center",
         display: "flex",
         marginLeft: "10px",
-        marginTop: "20px",
+        marginTop: "40px",
       }}
     >
       <Grid
@@ -30,6 +30,7 @@ export default function ResponsiveGrid({ movies }) {
           <Grid xs={2} sm={4} key={index}>
             <Item>
               <img style={{ width: "10vw" }} src={m.poster} />
+              <h5>{m.title}</h5>
             </Item>
           </Grid>
         ))}

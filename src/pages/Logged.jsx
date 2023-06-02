@@ -28,7 +28,7 @@ const Logged = () => {
     };
     verify();
     getMovies();
-    console.log(userState().email);
+    console.log(userState());
   }, []);
   return (
     <>
