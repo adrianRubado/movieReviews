@@ -3,6 +3,7 @@ import SignInSide from "./pages/SignIn";
 import SignUp from "./pages/SignUP";
 import { RequireAuth } from "react-auth-kit";
 import Logged from "./pages/Logged";
+
 function App() {
   return (
     <>

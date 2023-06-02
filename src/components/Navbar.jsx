@@ -15,7 +15,7 @@ import popcorn from "../assets/popcorn.png";
 import { useSignOut } from "react-auth-kit";
 import { useNavigate } from "react-router-dom";
 
-function Navbar() {
+function Navbar({ user }) {
   const signOut = useSignOut();
   const navigate = useNavigate();
 
@@ -25,7 +25,7 @@ function Navbar() {
     {
       name: "Profile",
       handler: () => {
-        console.log("hi");
+        console.log(user);
       },
     },
     {
@@ -72,8 +72,12 @@ function Navbar() {
       <Container>
         <Toolbar disableGutters>
           <img
+            style={{ marginRight: "20px" }}
             src={popcorn}
-            sx={{ display: { xs: "none", md: "flex" }, mr: 1 }}
+            sx={{
+              display: { xs: "none", md: "flex" },
+              mr: 1,
+            }}
           />
           <Typography
             variant="h6"
@@ -159,7 +163,7 @@ function Navbar() {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="A" src="/static/images/avatar/2.jpg" />
+                <Avatar alt={user} src="/static/images/avatar/2.jpg" />
               </IconButton>
             </Tooltip>
             <Menu
