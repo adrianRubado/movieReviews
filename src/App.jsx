@@ -3,6 +3,8 @@ import SignInSide from "./pages/SignIn";
 import SignUp from "./pages/SignUP";
 import { RequireAuth } from "react-auth-kit";
 import Logged from "./pages/Logged";
+import ThankForRegistering from "./pages/ThankForRegistering";
+
 
 function App() {
   return (
@@ -18,7 +20,7 @@ function App() {
         />
         <Route
           path="/thankForRegistering"
-          element={<h1>Revisa el mail para verificar tu cuenta</h1>}
+          element={<ThankForRegistering></ThankForRegistering>}
         />
         <Route path="/sign-in" element={<SignInSide />} />
         <Route path="/sign-up" element={<SignUp />} />
