@@ -8,6 +8,7 @@ import Avatar from "@mui/material/Avatar";
 import popcorn from "../assets/popcorn.png";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function ForgotPw() {
   const {
@@ -20,12 +21,12 @@ function ForgotPw() {
 
   const onSubmit = async (data) => {
     try {
-      console.log(data);
-      navigate("/forgot-password/check-mail");
-      // const resp = await axios.post("http://localhost:3000/api/reset-password", data);
-      /*  if (resp.status == 200) {
-        navigate("");
-      } */
+      const resp = await axios.post(
+        "http://localhost:3000/api/forgot-password",
+        data
+      );
+      console.log(resp);
+      //navigate("/forgot-password/check-mail");
     } catch (error) {
       console.log(error.message);
     }
