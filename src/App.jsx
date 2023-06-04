@@ -3,7 +3,10 @@ import SignInSide from "./pages/SignIn";
 import SignUp from "./pages/SignUP";
 import { RequireAuth } from "react-auth-kit";
 import Logged from "./pages/Logged";
-
+import ForgotPw from "./pages/ForgotPw";
+import CheckMail from "./pages/CheckMail";
+/* import ForgotPW from "./pages/ForgotPw";
+ */
 function App() {
   return (
     <>
@@ -22,6 +25,9 @@ function App() {
         />
         <Route path="/sign-in" element={<SignInSide />} />
         <Route path="/sign-up" element={<SignUp />} />
+        <Route path="/forgot-password" element={<ForgotPw />} />
+        <Route path="/forgot-password/check-mail" element={<CheckMail />} />
+        {/* <Route path="/forgot-password" element={<ForgotPw />} /> */}
       </Routes>
     </>
   );
