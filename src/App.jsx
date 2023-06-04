@@ -7,6 +7,8 @@ import ForgotPw from "./pages/ForgotPw";
 import CheckMail from "./pages/CheckMail";
 /* import ForgotPW from "./pages/ForgotPw";
  */
+import ThankForRegistering from "./pages/ThankForRegistering";
+
 function App() {
   return (
     <>
@@ -21,7 +23,7 @@ function App() {
         />
         <Route
           path="/thankForRegistering"
-          element={<h1>Revisa el mail para verificar tu cuenta</h1>}
+          element={<ThankForRegistering></ThankForRegistering>}
         />
         <Route path="/sign-in" element={<SignInSide />} />
         <Route path="/sign-up" element={<SignUp />} />
