@@ -14,7 +14,6 @@ import popcorn from "../assets/popcorn.png";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-
 function Copyright(props) {
   return (
     <Typography
@@ -47,8 +46,8 @@ export default function SignUp() {
   const navigate = useNavigate();
 
   const onSubmit = async (data) => {
-  /*   const resp = await axios.post("http://localhost:3000/api/register", data);
-    console.log(resp); */
+    const resp = await axios.post("http://localhost:3000/api/register", data);
+    console.log(resp);
     navigate("/thankForRegistering");
   };
 
@@ -169,7 +168,7 @@ export default function SignUp() {
                 error={!!errors?.Password}
                 helperText={errors?.Password ? errors.Password.message : null}
               />
-              
+
               <Button
                 type="submit"
                 fullWidth
@@ -178,7 +177,7 @@ export default function SignUp() {
               >
                 Sign Up
               </Button>
-              
+
               <Grid container>
                 <Grid item>
                   <Link href="/sign-in" variant="body2">
