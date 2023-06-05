@@ -1,14 +1,21 @@
 import React, { useState } from "react";
 import { TextField, Button } from "@mui/material";
+import { Typography } from "@mui/material";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import Comment from "../components/Comment";
 
 const CommentBox = () => {
   const [comment, setComment] = useState("");
+  const [reviews, setReviews] = useState([]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
     // Add your logic here to handle the submission of the comment
     // You can send the comment to an API, update the state, etc.
     console.log("Submitted comment:", comment);
+    let rev = [comment];
+    setReviews(...reviews, rev);
     setComment("");
   };
 
@@ -38,6 +45,12 @@ const CommentBox = () => {
           Submit
         </Button>
       </form>
+
+      <section>
+        {reviews.map((r, index) => {
+          return <Comment comment={r} />;
+        })}
+      </section>
     </div>
   );
 };

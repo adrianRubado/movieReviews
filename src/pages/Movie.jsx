@@ -9,7 +9,7 @@ import Box from "@mui/system/Box";
 import { useMediaQuery } from "@mui/material";
 
 const Movie = () => {
-  const isMobile = useMediaQuery("(max-width:600px)");
+  const isMobile = useMediaQuery("(max-width:800px)");
   const params = useParams();
   const [movie, setMovie] = useState({});
   const getMovie = async () => {
