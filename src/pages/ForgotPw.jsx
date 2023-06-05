@@ -26,7 +26,7 @@ function ForgotPw() {
         data
       );
       console.log(resp);
-      //navigate("/forgot-password/check-mail");
+      navigate("/forgot-password/check-mail");
     } catch (error) {
       console.log(error.message);
     }

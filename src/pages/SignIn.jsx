@@ -64,7 +64,7 @@ export default function SignInSide() {
           tokenType: "Bearer",
           authState: { email: data.email },
         });
-        navigate("/loggedIn");
+        navigate("/home");
       }
     } catch (error) {
       console.log(error.message);
@@ -74,7 +74,7 @@ export default function SignInSide() {
 
   useEffect(() => {
     if (isAuthenticated()) {
-      navigate("/loggedIn");
+      navigate("/home");
     }
   }, []);
 
