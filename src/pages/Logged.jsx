@@ -34,7 +34,7 @@ const Logged = () => {
     <>
       <div
         style={{
-          backgroundColor: " #282c34",
+          backgroundColor: "#282c34",
           alignItems: "center",
           justifyContent: "center",
           color: "white",
