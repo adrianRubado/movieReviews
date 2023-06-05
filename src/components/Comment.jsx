@@ -10,6 +10,7 @@ import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import { blue } from "@mui/material/colors";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { useMediaQuery } from "@mui/material";
 
 const ExpandMore = styled((props) => {
@@ -24,7 +25,21 @@ const ExpandMore = styled((props) => {
 }));
 
 export default function RecipeReviewCard(props) {
+  const [expanded, setExpanded] = useState(false);
   const isMobile = useMediaQuery("(max-width:800px)");
+
+  const handleExpandClick = () => {
+    setExpanded(!expanded);
+  };
+
+  function generateShortDescription(longText, maxLength) {
+    if (longText.length <= maxLength) {
+      return longText;
+    }
+
+    const truncatedText = longText.substring(0, maxLength - 3); // Subtracting 3 to account for the ellipsis
+    return truncatedText + "...";
+  }
 
   return (
     <>
@@ -37,21 +52,42 @@ export default function RecipeReviewCard(props) {
           padding: "2em",
         }}
       >
-        <Card style={{ marginRight: "5em" }}>
+        <Card sx={{ maxWidth: 345 }} style={{ marginRight: "5em" }}>
           <CardHeader
             avatar={
               <Avatar sx={{ bgcolor: blue[500] }} aria-label="recipe">
                 B
               </Avatar>
             }
+            action={
+              <IconButton aria-label="settings">
+                <MoreVertIcon />
+              </IconButton>
+            }
             title="Blog Title"
             subheader="Blog Subtitle"
           />
           <CardContent>
             <Typography variant="body2" color="text.secondary">
-              {props.comment}
+              {generateShortDescription(props.comment, 200)}
             </Typography>
           </CardContent>
+          <CardActions disableSpacing>
+            <h4>Read More</h4>
+            <ExpandMore
+              expand={expanded}
+              onClick={handleExpandClick}
+              aria-expanded={expanded}
+              aria-label="show more"
+            >
+              <ArrowForwardIcon />
+            </ExpandMore>
+          </CardActions>
+          <Collapse in={expanded} timeout="auto" unmountOnExit>
+            <CardContent>
+              <Typography paragraph>{props.comment}</Typography>
+            </CardContent>
+          </Collapse>
         </Card>
       </div>
     </>
