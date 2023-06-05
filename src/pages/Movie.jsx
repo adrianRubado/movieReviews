@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Trailer from "../components/Trailer";
 import About from "../components/About";
+import ReviewBox from "../components/ReviewBox";
 
 const Movie = () => {
   const params = useParams();
@@ -30,6 +31,19 @@ const Movie = () => {
       >
         <Trailer />
         <About />
+      </div>
+      <div
+        style={{
+          alignItems: "center",
+          justifyContent: "center",
+          marginLeft: "-8px",
+          marginRight: "-8px",
+          marginBottom: "-8px",
+          overflow: "hidden",
+          flex: "column",
+        }}
+      >
+        <ReviewBox />
       </div>
     </div>
   );

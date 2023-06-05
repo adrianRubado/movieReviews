@@ -15,6 +15,7 @@ const movieCardStyles = {
     fontSize: 24,
     marginBottom: 10,
     justifyContent: "center",
+    textAlign: "center",
   },
   about: {
     marginBottom: 15,
