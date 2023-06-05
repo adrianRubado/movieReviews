@@ -9,13 +9,13 @@ const Trailer = () => {
   return (
     <div
       style={{
-        marginTop: "20px",
+        marginTop: "50px",
         height: "50vh",
         width: "120vw",
-        paddingTop: "100px",
+        /* paddingTop: "100px",
         paddingBottom: "100px",
         paddingRight: "10px",
-        paddingLeft: "100px",
+        paddingLeft: "100px", */
       }}
     >
       {key != null ? (

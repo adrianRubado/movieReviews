@@ -17,7 +17,7 @@ const CommentBox = () => {
   };
 
   return (
-    <div>
+    <div style={{ marginTop: "50px" }}>
       <h2 style={{ textAlign: "center" }}>Write a review:</h2>
       <form onSubmit={handleSubmit}>
         <TextField

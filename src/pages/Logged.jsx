@@ -4,12 +4,11 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 import ResponsiveGrid from "../components/ResponsiveGrid";
-import { useAuthUser } from "react-auth-kit";
 
 const Logged = () => {
   const navigate = useNavigate();
   const [movies, setMovies] = useState([]);
-  const userState = useAuthUser();
+
   const getMovies = async () => {
     const resp = await axios.get("http://localhost:3000/api/movies");
     setMovies(resp.data);
@@ -28,7 +27,6 @@ const Logged = () => {
     };
     verify();
     getMovies();
-    console.log(userState());
   }, []);
   return (
     <>
@@ -44,7 +42,7 @@ const Logged = () => {
           overflow: "hidden",
         }}
       >
-        <Navbar user={userState().email} />
+        <Navbar />
         <Hero movies={movies} />
         <ResponsiveGrid movies={movies} />
       </div>

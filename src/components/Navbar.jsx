@@ -14,10 +14,13 @@ import MenuItem from "@mui/material/MenuItem";
 import popcorn from "../assets/popcorn.png";
 import { useSignOut } from "react-auth-kit";
 import { useNavigate } from "react-router-dom";
+import { useAuthUser } from "react-auth-kit";
 
-function Navbar({ user }) {
+function Navbar() {
   const signOut = useSignOut();
   const navigate = useNavigate();
+  const userState = useAuthUser();
+  const user = userState().email;
 
   const pages = ["Movies", "About", "My reviews"];
 

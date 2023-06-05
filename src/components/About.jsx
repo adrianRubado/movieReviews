@@ -5,8 +5,8 @@ import Typography from "@mui/material/Typography";
 
 const movieCardStyles = {
   root: {
-    minWidth: 275,
     margin: "20px",
+    marginBottom: "50px",
     boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)",
     color: "white",
     backgroundColor: "grey",
