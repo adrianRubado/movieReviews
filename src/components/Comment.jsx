@@ -52,7 +52,7 @@ export default function RecipeReviewCard(props) {
           padding: "2em",
         }}
       >
-        <Card sx={{ maxWidth: 345 }} style={{ marginRight: "5em" }}>
+        <Card style={{ marginRight: "5em" }}>
           <CardHeader
             avatar={
               <Avatar sx={{ bgcolor: blue[500] }} aria-label="recipe">
