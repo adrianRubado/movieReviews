@@ -5,11 +5,13 @@ import Typography from "@mui/material/Typography";
 
 const movieCardStyles = {
   root: {
+    width: "90vw",
     margin: "20px",
-    marginBottom: "50px",
+    marginTop: "80px",
     boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)",
     color: "white",
     backgroundColor: "grey",
+    height: "50vh",
   },
   title: {
     fontSize: 24,
@@ -30,17 +32,15 @@ const movieCardStyles = {
   },
 };
 
-const MovieCard = () => {
+const MovieCard = (props) => {
   return (
     <Card sx={movieCardStyles.root}>
       <CardContent>
         <Typography variant="h5" component="h2" sx={movieCardStyles.title}>
-          {"Spiderman"}
+          {props.title}
         </Typography>
         <Typography variant="body2" component="p" sx={movieCardStyles.about}>
-          {
-            "The story revolves around Miles Morales, a young teenager living in Brooklyn, New York. Miles gets bitten by a radioactive spider and gains spider-like abilities. Soon after, he witnesses the original Spider-Man, Peter Parker, battling the supervillain Kingpin. During the fight, Kingpin opens up a dimensional portal, inadvertently causing multiple versions of Spider-Man from different dimensions to appear."
-          }
+          {props.plot}
         </Typography>
         <div sx={movieCardStyles.scores}>
           <div sx={movieCardStyles.scoreItem}>

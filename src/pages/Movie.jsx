@@ -13,8 +13,18 @@ const Movie = () => {
   const params = useParams();
   const [movie, setMovie] = useState({});
   const getMovie = async () => {
-    const resp = await axios.get();
+    const resp = await axios.get(
+      `http://localhost:3000/api/movies/${params.movieId}`
+    );
+    console.log(resp.data);
+    setMovie(resp.data);
   };
+
+  useEffect(() => {
+    getMovie();
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div>
       <Navbar />
@@ -22,19 +32,18 @@ const Movie = () => {
       <Box
         sx={{
           backgroundColor: " #282c34",
-          alignItems: "center",
-          justifyContent: "center",
+          /* alignItems: "center",
+          justifyContent: "center", */
           color: "white",
           marginLeft: "-8px",
           marginRight: "-8px",
           marginBottom: "-8px",
           overflow: "hidden",
-          height: "100vh",
         }}
         display={isMobile ? "column" : "flex"}
       >
-        <Trailer />
-        <About />
+        <Trailer trailer={movie.trailerLink} />
+        <About plot={movie.plot} title={movie.title} />
       </Box>
 
       <div

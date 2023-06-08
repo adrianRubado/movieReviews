@@ -2,6 +2,7 @@ import * as React from "react";
 import Box from "@mui/system/Box";
 import Grid from "@mui/system/Unstable_Grid";
 import styled from "@mui/system/styled";
+import { Link } from "react-router-dom";
 
 const Item = styled("div")(({ theme }) => ({
   padding: theme.spacing(1),
@@ -28,10 +29,12 @@ export default function ResponsiveGrid({ movies }) {
       >
         {movies.map((m, index) => (
           <Grid xs={2} sm={4} key={index}>
-            <Item>
-              <img style={{ width: "10vw" }} src={m.poster} />
-              <h5>{m.title}</h5>
-            </Item>
+            <Link style={{ color: "white" }} to={`/movie/${m.imdbId}`}>
+              <Item>
+                <img style={{ width: "10vw" }} src={m.poster} />
+                <h5>{m.title}</h5>
+              </Item>
+            </Link>
           </Grid>
         ))}
       </Grid>
