@@ -44,17 +44,7 @@ const MovieCard = (props) => {
         <div sx={movieCardStyles.scores}>
           <div sx={movieCardStyles.scoreItem}>
             <Typography variant="body2" component="span">
-              <strong>IMDB:</strong> {8.0}
-            </Typography>
-          </div>
-          <div sx={movieCardStyles.scoreItem}>
-            <Typography variant="body2" component="span">
-              <strong>Rotten Tomatoes:</strong> {7.0}
-            </Typography>
-          </div>
-          <div sx={movieCardStyles.scoreItem}>
-            <Typography variant="body2" component="span">
-              <strong>Metacritic:</strong> {10.0}
+              <strong>IMDB:</strong> {props.score}
             </Typography>
           </div>
         </div>
