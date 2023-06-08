@@ -10,7 +10,7 @@ const Trailer = (props) => {
     <div
       style={{
         marginTop: "80px",
-        height: "50vh",
+        height: "47vh",
         width: "90vw",
         marginLeft: "20px",
       }}
