@@ -11,7 +11,6 @@ const movieCardStyles = {
     boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)",
     color: "white",
     backgroundColor: "grey",
-    height: "50vh",
   },
   title: {
     fontSize: 24,
