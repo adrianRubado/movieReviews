@@ -22,6 +22,15 @@ function App() {
             </RequireAuth>
           }
         />
+        <Route
+          path="/home/:id"
+          element={
+            <RequireAuth loginPath="/sign-in">
+              <Logged />
+            </RequireAuth>
+          }
+        />
+
         <Route path="/" element={<Navigate to="/home" />} />
         <Route path="/movie/:movieId" element={<Movie />} />
         <Route path="/thankForRegistering" element={<ThankForRegistering />} />
