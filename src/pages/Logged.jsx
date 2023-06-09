@@ -67,37 +67,39 @@ const Logged = () => {
         <Navbar />
         <Hero movies={movies} />
         <ResponsiveGrid movies={movies} />
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            "& > *": {
-              m: 1,
-            },
-          }}
-        >
-          <ButtonGroup variant="outlined" aria-label="outlined button group">
-            {pages.map((p, i) => {
-              return (
-                <>
-                  {p == index && (
-                    <Link to={`/home/${p}`}>
-                      <Button onClick={handlePages} variant="contained">
-                        {p}
-                      </Button>
-                    </Link>
-                  )}
-                  {p != index && (
-                    <Link to={`/home/${p}`}>
-                      <Button onClick={handlePages}>{p}</Button>
-                    </Link>
-                  )}
-                </>
-              );
-            })}
-          </ButtonGroup>
-        </Box>
+        {movies.length != 0 && (
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              "& > *": {
+                m: 1,
+              },
+            }}
+          >
+            <ButtonGroup variant="outlined" aria-label="outlined button group">
+              {pages.map((p, i) => {
+                return (
+                  <>
+                    {p == index && (
+                      <Link to={`/home/${p}`}>
+                        <Button onClick={handlePages} variant="contained">
+                          {p}
+                        </Button>
+                      </Link>
+                    )}
+                    {p != index && (
+                      <Link to={`/home/${p}`}>
+                        <Button onClick={handlePages}>{p}</Button>
+                      </Link>
+                    )}
+                  </>
+                );
+              })}
+            </ButtonGroup>
+          </Box>
+        )}
       </div>
     </>
   );

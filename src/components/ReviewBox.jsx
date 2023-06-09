@@ -1,27 +1,46 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { TextField, Button } from "@mui/material";
 import { Typography } from "@mui/material";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Comment from "../components/Comment";
+import axios from "axios";
 
-const CommentBox = () => {
+const CommentBox = (props) => {
   const [comment, setComment] = useState("");
   const [reviews, setReviews] = useState([]);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
+    const data = {
+      imdbId: props.movieId,
+      body: comment,
+      score: 5.0,
+    };
+    const createReview = axios.create({
+      withCredentials: true,
+    });
+    const resp = await createReview.post(
+      "http://localhost:3000/api/review",
+      data
+    );
+    console.log(resp.data);
     // Add your logic here to handle the submission of the comment
     // You can send the comment to an API, update the state, etc.
     console.log("Submitted comment:", comment);
-    let rev = [comment];
-    setReviews(...reviews, rev);
+    setReviews(resp.data);
     setComment("");
   };
 
   const handleChange = (event) => {
     setComment(event.target.value);
   };
+
+  const getReviews = async () => {};
+
+  useEffect(() => {
+    console.log(props.movieId);
+  }, []);
 
   return (
     <div style={{ marginTop: "50px" }}>

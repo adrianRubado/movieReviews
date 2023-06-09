@@ -59,7 +59,7 @@ const Movie = () => {
           flex: "column",
         }}
       >
-        <ReviewBox />
+        <ReviewBox movieId={params.movieId} />
       </div>
     </div>
   );
