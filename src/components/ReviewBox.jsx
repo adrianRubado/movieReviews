@@ -36,10 +36,16 @@ const CommentBox = (props) => {
     setComment(event.target.value);
   };
 
-  const getReviews = async () => {};
+  const getReviews = async () => {
+    const data = {
+      movie: props.movieId,
+    };
+    const resp = await axios.get("http://localhost:3000/api/reviews", data);
+    setReviews(resp.data);
+  };
 
   useEffect(() => {
-    console.log(props.movieId);
+    getReviews();
   }, []);
 
   return (
