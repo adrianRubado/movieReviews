@@ -43,7 +43,7 @@ function Navbar() {
     {
       name: "Profile",
       handler: () => {
-        console.log(user);
+        navigate("/profile");
       },
     },
     {
