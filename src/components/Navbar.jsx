@@ -37,6 +37,10 @@ function Navbar() {
       name: "My reviews",
       link: "/my-reviews",
     },
+    {
+      name: "Favorites",
+      link: "/favorites",
+    },
   ];
 
   const settings = [
