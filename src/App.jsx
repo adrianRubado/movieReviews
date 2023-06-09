@@ -6,6 +6,7 @@ import Logged from "./pages/Logged";
 import ForgotPw from "./pages/ForgotPw";
 import CheckMail from "./pages/CheckMail";
 import Movie from "./pages/Movie";
+import About from "./pages/About";
 import { Navigate } from "react-router-dom";
 
 import ThankForRegistering from "./pages/ThankForRegistering";
@@ -30,6 +31,8 @@ function App() {
             </RequireAuth>
           }
         />
+
+        <Route path="/about" element={<About />} />
 
         <Route path="/" element={<Navigate to="/home" />} />
         <Route path="/movie/:movieId" element={<Movie />} />
