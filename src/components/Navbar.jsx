@@ -81,14 +81,16 @@ function Navbar() {
     <AppBar position="fixed">
       <Container>
         <Toolbar disableGutters>
-          <img
-            style={{ marginRight: "20px" }}
-            src={popcorn}
-            sx={{
-              display: { xs: "none", md: "flex" },
-              mr: 1,
-            }}
-          />
+          <Link to={"/home"}>
+            <img
+              style={{ marginRight: "20px" }}
+              src={popcorn}
+              sx={{
+                display: { xs: "none", md: "flex" },
+                mr: 1,
+              }}
+            />
+          </Link>
           <Typography
             variant="h6"
             noWrap
