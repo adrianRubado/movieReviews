@@ -12,9 +12,21 @@ const Movie = () => {
   const isMobile = useMediaQuery("(max-width:800px)");
   const params = useParams();
   const [movie, setMovie] = useState({});
+  const [score, setScore] = useState(0.0);
   const getMovie = async () => {
-    const resp = await axios.get();
+    const resp = await axios.get(
+      `http://localhost:3000/api/movies/${params.movieId}`
+    );
+    console.log(resp.data);
+    setMovie(resp.data);
+    setScore(resp.data.score.$numberDecimal);
   };
+
+  useEffect(() => {
+    getMovie();
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div>
       <Navbar />
@@ -22,19 +34,18 @@ const Movie = () => {
       <Box
         sx={{
           backgroundColor: " #282c34",
-          alignItems: "center",
-          justifyContent: "center",
+          /* alignItems: "center",
+          justifyContent: "center", */
           color: "white",
           marginLeft: "-8px",
           marginRight: "-8px",
           marginBottom: "-8px",
           overflow: "hidden",
-          height: "100vh",
         }}
         display={isMobile ? "column" : "flex"}
       >
-        <Trailer />
-        <About />
+        <Trailer trailer={movie.trailerLink} />
+        <About plot={movie.plot} title={movie.title} score={score} />
       </Box>
 
       <div
@@ -48,7 +59,7 @@ const Movie = () => {
           flex: "column",
         }}
       >
-        <ReviewBox />
+        <ReviewBox movieId={params.movieId} />
       </div>
     </div>
   );

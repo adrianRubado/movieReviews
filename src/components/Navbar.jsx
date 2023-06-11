@@ -13,7 +13,7 @@ import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import popcorn from "../assets/popcorn.png";
 import { useSignOut } from "react-auth-kit";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuthUser } from "react-auth-kit";
 
 function Navbar() {
@@ -22,25 +22,32 @@ function Navbar() {
   const userState = useAuthUser();
   const user = userState().email;
 
-  const pages = ["Movies", "About", "My reviews"];
+  const pages = [
+    {
+      name: "Home",
+      link: "/home",
+    },
+
+    {
+      name: "About",
+      link: "/about",
+    },
+
+    {
+      name: "My reviews",
+      link: "/my-reviews",
+    },
+    {
+      name: "Favorites",
+      link: "/favorites",
+    },
+  ];
 
   const settings = [
     {
       name: "Profile",
       handler: () => {
-        console.log(user);
-      },
-    },
-    {
-      name: "Account",
-      handler: () => {
-        console.log("hi");
-      },
-    },
-    {
-      name: "Dashboard",
-      handler: () => {
-        console.log("hi");
+        navigate("/profile");
       },
     },
     {
@@ -74,14 +81,16 @@ function Navbar() {
     <AppBar position="fixed">
       <Container>
         <Toolbar disableGutters>
-          <img
-            style={{ marginRight: "20px" }}
-            src={popcorn}
-            sx={{
-              display: { xs: "none", md: "flex" },
-              mr: 1,
-            }}
-          />
+          <Link to={"/home"}>
+            <img
+              style={{ marginRight: "20px" }}
+              src={popcorn}
+              sx={{
+                display: { xs: "none", md: "flex" },
+                mr: 1,
+              }}
+            />
+          </Link>
           <Typography
             variant="h6"
             noWrap
@@ -130,9 +139,11 @@ function Navbar() {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
+                <Link style={{ textDecoration: "none" }} to={page.link}>
+                  <MenuItem key={page.name} onClick={handleCloseNavMenu}>
+                    <Typography textAlign="center">{page.name}</Typography>
+                  </MenuItem>
+                </Link>
               ))}
             </Menu>
           </Box>
@@ -153,13 +164,15 @@ function Navbar() {
           ></Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
-              >
-                {page}
-              </Button>
+              <Link style={{ textDecoration: "none" }} to={page.link}>
+                <Button
+                  key={page.name}
+                  onClick={handleCloseNavMenu}
+                  sx={{ my: 2, color: "white", display: "block" }}
+                >
+                  {page.name}
+                </Button>
+              </Link>
             ))}
           </Box>
 

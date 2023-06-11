@@ -50,9 +50,10 @@ export default function RecipeReviewCard(props) {
           justifyContent: "center",
           alignItems: "center",
           padding: "2em",
+          width: "80vw",
         }}
       >
-        <Card sx={{ maxWidth: 345 }} style={{ marginRight: "5em" }}>
+        <Card style={{ marginRight: "5em" }}>
           <CardHeader
             avatar={
               <Avatar sx={{ bgcolor: blue[500] }} aria-label="recipe">
@@ -69,7 +70,7 @@ export default function RecipeReviewCard(props) {
           />
           <CardContent>
             <Typography variant="body2" color="text.secondary">
-              {generateShortDescription(props.comment, 200)}
+              {generateShortDescription(props.comment.body, 200)}
             </Typography>
           </CardContent>
           <CardActions disableSpacing>
@@ -85,7 +86,7 @@ export default function RecipeReviewCard(props) {
           </CardActions>
           <Collapse in={expanded} timeout="auto" unmountOnExit>
             <CardContent>
-              <Typography paragraph>{props.comment}</Typography>
+              <Typography paragraph>{props.comment.body}</Typography>
             </CardContent>
           </Collapse>
         </Card>

@@ -8,6 +8,13 @@ import CheckMail from "./pages/CheckMail";
 import Movie from "./pages/Movie";
 import ThankForRegistering from "./pages/ThankForRegistering";
 import RestorePassw from "./pages/RestorePassW";
+import About from "./pages/About";
+import { Navigate } from "react-router-dom";
+
+import ThankForRegistering from "./pages/ThankForRegistering";
+import MyReviews from "./pages/MyReviews";
+import Favorites from "./pages/Favorites";
+import Profile from "./pages/Profile";
 
 function App() {
   return (
@@ -21,6 +28,22 @@ function App() {
             </RequireAuth>
           }
         />
+        <Route
+          path="/home/:id"
+          element={
+            <RequireAuth loginPath="/sign-in">
+              <Logged />
+            </RequireAuth>
+          }
+        />
+
+        <Route path="/my-reviews" element={<MyReviews />} />
+        <Route path="/favorites" element={<Favorites />} />
+        <Route path="/profile" element={<Profile />} />
+
+        <Route path="/about" element={<About />} />
+
+        <Route path="/" element={<Navigate to="/home" />} />
         <Route path="/movie/:movieId" element={<Movie />} />
         <Route path="/thankForRegistering" element={<ThankForRegistering />} />
         <Route path="/sign-in" element={<SignInSide />} />
