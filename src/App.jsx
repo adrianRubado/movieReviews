@@ -6,9 +6,8 @@ import Logged from "./pages/Logged";
 import ForgotPw from "./pages/ForgotPw";
 import CheckMail from "./pages/CheckMail";
 import Movie from "./pages/Movie";
-/* import ForgotPW from "./pages/ForgotPw";
- */
 import ThankForRegistering from "./pages/ThankForRegistering";
+import RestorePassw from "./pages/RestorePassW";
 
 function App() {
   return (
@@ -28,6 +27,7 @@ function App() {
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/forgot-password" element={<ForgotPw />} />
         <Route path="/forgot-password/check-mail" element={<CheckMail />} />
+        <Route path="/restore-password" element={<RestorePassw />} />
         {/* <Route path="/forgot-password" element={<ForgotPw />} /> */}
       </Routes>
     </>
