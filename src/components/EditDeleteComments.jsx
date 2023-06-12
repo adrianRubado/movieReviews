@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { styled } from "@mui/material/styles";
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
@@ -34,11 +34,23 @@ export default function EditReviewCard(props) {
   const [isEditing, setIsEditing] = useState(false);
   const [expanded, setExpanded] = useState(false);
   const [editedContent, setEditedContent] = useState(props.comment.body);
+  const [avatar, setAvatar] = useState({});
   const isMobile = useMediaQuery("(max-width:800px)");
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
+
+  const getMovieAvatar = async () => {
+    const resp = await axios.get(
+      `http://localhost:3000/api/movies/${props.comment.imdbId}`
+    );
+    setAvatar(resp.data.poster);
+  };
+
+  useEffect(() => {
+    getMovieAvatar();
+  }, []);
 
   const handleInputChange = (event) => {
     setEditedContent(event.target.value);
@@ -122,7 +134,7 @@ export default function EditReviewCard(props) {
           <CardHeader
             avatar={
               <Avatar sx={{ bgcolor: blue[500] }} aria-label="recipe">
-                {Array.from(props.comment.email)[0]}
+                <img src={avatar} />
               </Avatar>
             }
             /* action={

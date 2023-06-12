@@ -29,7 +29,7 @@ const CommentBox = (props) => {
     // Add your logic here to handle the submission of the comment
     // You can send the comment to an API, update the state, etc.
     console.log("Submitted comment:", comment);
-    setReviews(resp.data);
+    setReviews(resp.data.reverse());
     setComment("");
   };
 

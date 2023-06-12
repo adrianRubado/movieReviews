@@ -9,7 +9,7 @@ const MyReviews = () => {
   const [emptyReviews, setEmptyReviews] = useState(false);
 
   const updateReviews = (movies) => {
-    setMyReviews(movies);
+    setMyReviews(movies.reverse());
   };
 
   const noReviews = () => {
@@ -22,13 +22,11 @@ const MyReviews = () => {
     });
     const resp = await reviews.get(`http://localhost:3000/api/user/reviews`);
     console.log(resp.data);
-    setMyReviews(resp.data);
+    setMyReviews(resp.data.reverse());
     if (resp.data.length == 0) {
       setEmptyReviews(true);
     }
   };
-
-  async function handleEdit(event, id) {}
 
   useEffect(() => {
     Swal.close();
@@ -55,18 +53,20 @@ const MyReviews = () => {
         <div
           style={{
             color: "black",
-            width: "100vw",
             alignItems: "center",
             justifyContent: "center",
             textAlign: "center",
             marginTop: "100px",
-            marginLeft: "50px",
           }}
         >
           {myReviews.map((r, index) => {
             return (
               <>
-                <div style={{ display: "flex" }}>
+                <div
+                  style={{
+                    display: "flex",
+                  }}
+                >
                   <EditReviewCard
                     comment={r}
                     update={updateReviews}
