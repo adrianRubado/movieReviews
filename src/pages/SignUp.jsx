@@ -13,6 +13,7 @@ import { useForm } from "react-hook-form";
 import popcorn from "../assets/popcorn.png";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 function Copyright(props) {
   return (

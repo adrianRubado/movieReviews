@@ -6,6 +6,7 @@ import Hero from "../components/Hero";
 import ResponsiveGrid from "../components/ResponsiveGrid";
 import Button from "@mui/material/Button";
 import ButtonGroup from "@mui/material/ButtonGroup";
+import Swal from "sweetalert2";
 import Box from "@mui/material/Box";
 
 const Logged = () => {
@@ -36,6 +37,7 @@ const Logged = () => {
     setMovies(resp.data);
   };
   useEffect(() => {
+    Swal.close();
     const verify = async () => {
       try {
         const verifyToken = axios.create({

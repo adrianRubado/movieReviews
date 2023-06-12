@@ -10,7 +10,7 @@ import Movie from "./pages/Movie";
 import RestorePassw from "./pages/RestorePassW";
 import About from "./pages/About";
 import { Navigate } from "react-router-dom";
-
+import ThankForRegistering from "./pages/ThankForRegistering"
 import MyReviews from "./pages/MyReviews";
 import Favorites from "./pages/Favorites";
 import Profile from "./pages/Profile";

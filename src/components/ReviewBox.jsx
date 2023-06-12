@@ -14,6 +14,7 @@ const CommentBox = (props) => {
     event.preventDefault();
     const data = {
       imdbId: props.movieId,
+      title: props.title,
       body: comment,
       score: 5.0,
     };
@@ -37,10 +38,10 @@ const CommentBox = (props) => {
   };
 
   const getReviews = async () => {
-    const data = {
-      movie: props.movieId,
-    };
-    const resp = await axios.get("http://localhost:3000/api/reviews", data);
+    const resp = await axios.get(
+      `http://localhost:3000/api/movie/${props.movieId}/reviews`
+    );
+    console.log(resp.data);
     setReviews(resp.data);
   };
 

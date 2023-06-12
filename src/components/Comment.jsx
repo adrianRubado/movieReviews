@@ -53,20 +53,19 @@ export default function RecipeReviewCard(props) {
           width: "80vw",
         }}
       >
-        <Card style={{ marginRight: "5em" }}>
+        <Card style={{ width: "80vw" }}>
           <CardHeader
             avatar={
               <Avatar sx={{ bgcolor: blue[500] }} aria-label="recipe">
-                B
+                {Array.from(props.comment.email)[0]}
               </Avatar>
             }
-            action={
+            /* action={
               <IconButton aria-label="settings">
                 <MoreVertIcon />
               </IconButton>
-            }
-            title="Blog Title"
-            subheader="Blog Subtitle"
+            } */
+            title={props.comment.title}
           />
           <CardContent>
             <Typography variant="body2" color="text.secondary">

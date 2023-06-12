@@ -7,6 +7,7 @@ import About from "../components/About";
 import ReviewBox from "../components/ReviewBox";
 import Box from "@mui/system/Box";
 import { useMediaQuery } from "@mui/material";
+import Swal from "sweetalert2";
 
 const Movie = () => {
   const isMobile = useMediaQuery("(max-width:800px)");
@@ -23,6 +24,7 @@ const Movie = () => {
   };
 
   useEffect(() => {
+    Swal.close();
     getMovie();
     window.scrollTo(0, 0);
   }, []);
@@ -59,7 +61,7 @@ const Movie = () => {
           flex: "column",
         }}
       >
-        <ReviewBox movieId={params.movieId} />
+        <ReviewBox movieId={params.movieId} title={movie.title} />
       </div>
     </div>
   );
