@@ -77,6 +77,7 @@ export default function EditReviewCard(props) {
         if (resp.data.length == 0) {
           props.noReviews();
         }
+        location.reload();
       }
     });
   }
