@@ -6,7 +6,7 @@ import Logged from "./pages/Logged";
 import ForgotPw from "./pages/ForgotPw";
 import CheckMail from "./pages/CheckMail";
 import Movie from "./pages/Movie";
-import ThankForRegistering from "./pages/ThankForRegistering";
+
 import RestorePassw from "./pages/RestorePassW";
 import About from "./pages/About";
 import { Navigate } from "react-router-dom";
