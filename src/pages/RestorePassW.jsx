@@ -6,10 +6,14 @@ import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import axios from "axios";
 import Typography from "@mui/material/Typography";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 const RestorePassW = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [searchParams] = useSearchParams();
+  const token = searchParams.get("token");
+  const navigate = useNavigate();
 
   const {
     register,
@@ -17,8 +21,18 @@ const RestorePassW = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     console.log(data); // Aquí puedes realizar la lógica de restablecimiento de contraseña, como enviar una solicitud al servidor
+    try {
+      const resp = await axios.post(
+        `http://localhost:3000/api/restore-password?token=${token}`,
+        data
+      );
+      console.log(resp);
+      navigate("/sign-in");
+    } catch (error) {
+      console.log(error.message);
+    }
   };
 
   const handlePasswordChange = (event) => {
