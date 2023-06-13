@@ -10,7 +10,7 @@ import Movie from "./pages/Movie";
 import RestorePassw from "./pages/RestorePassW";
 import About from "./pages/About";
 import { Navigate } from "react-router-dom";
-import ThankForRegistering from "./pages/ThankForRegistering"
+import ThankForRegistering from "./pages/ThankForRegistering";
 import MyReviews from "./pages/MyReviews";
 import Favorites from "./pages/Favorites";
 import Profile from "./pages/Profile";
@@ -19,6 +19,7 @@ function App() {
   return (
     <>
       <Routes>
+        <Route path="/" element={<Navigate to="/home" />} />
         <Route
           path="/home"
           element={
@@ -36,14 +37,41 @@ function App() {
           }
         />
 
-        <Route path="/my-reviews" element={<MyReviews />} />
-        <Route path="/favorites" element={<Favorites />} />
-        <Route path="/profile" element={<Profile />} />
+        <Route
+          path="/my-reviews"
+          element={
+            <RequireAuth loginPath="/sign-in">
+              <MyReviews />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/favorites"
+          element={
+            <RequireAuth loginPath="/sign-in">
+              <Favorites />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/profile"
+          element={
+            <RequireAuth loginPath="/sign-in">
+              <Profile />
+            </RequireAuth>
+          }
+        />
 
         <Route path="/about" element={<About />} />
 
-        <Route path="/" element={<Navigate to="/home" />} />
-        <Route path="/movie/:movieId" element={<Movie />} />
+        <Route
+          path="/movie/:movieId"
+          element={
+            <RequireAuth loginPath="/sign-in">
+              <Movie />
+            </RequireAuth>
+          }
+        />
         <Route path="/thankForRegistering" element={<ThankForRegistering />} />
         <Route path="/sign-in" element={<SignInSide />} />
         <Route path="/sign-up" element={<SignUp />} />
