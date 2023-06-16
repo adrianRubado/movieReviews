@@ -2,6 +2,8 @@ import React from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
+import FavoriteIcon from '@mui/icons-material/Favorite';
+
 
 const movieCardStyles = {
   root: {
@@ -60,9 +62,15 @@ const MovieCard = (props) => {
               <strong>Release Date: </strong> {props.releaseDate}
               <br />
               <strong>Genres: </strong> {genres?.join(",")}
+              
             </Typography>
+            
           </div>
         </div>
+        <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+  <FavoriteIcon style={{ fontSize: "90px" }} />
+</div>
+        
       </CardContent>
     </Card>
   );
