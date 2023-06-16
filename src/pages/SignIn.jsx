@@ -152,10 +152,6 @@ export default function SignInSide() {
                 error={!!errors?.password}
                 helperText={errors?.password ? errors.password.message : null}
               />
-              <FormControlLabel
-                control={<Checkbox value="remember" color="primary" />}
-                label="Remember me"
-              />
 
               {login && (
                 <Grid sx={{ textAlign: "center" }} item xs>

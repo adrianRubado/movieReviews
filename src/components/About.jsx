@@ -3,7 +3,6 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 
-
 const movieCardStyles = {
   root: {
     width: "90vw",
@@ -11,7 +10,7 @@ const movieCardStyles = {
     marginTop: "80px",
     boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)",
     color: "white",
-    backgroundColor: "#282c34"
+    backgroundColor: "#282c34",
   },
   title: {
     marginTop: "20px",
@@ -26,25 +25,20 @@ const movieCardStyles = {
   },
   scores: {
     marginTop: 15,
-    
   },
   scoreItem: {
     display: "flex",
     alignItems: "center",
     marginBottom: 8,
-    
   },
   info: {
     fontSize: 18,
-    
   },
 };
 
-
 const MovieCard = (props) => {
-  const genres= props.genres;
- 
-  
+  const genres = props.genres;
+
   return (
     <Card sx={movieCardStyles.root}>
       <CardContent>
@@ -56,20 +50,18 @@ const MovieCard = (props) => {
         </Typography>
         <div sx={movieCardStyles.scores}>
           <div sx={movieCardStyles.scoreItem}>
-            <Typography variant="body2" component="span" sx={movieCardStyles.info} >
+            <Typography
+              variant="body2"
+              component="span"
+              sx={movieCardStyles.info}
+            >
               <strong>IMDB:</strong> {props.score}
-              <br/>
+              <br />
               <strong>Release Date: </strong> {props.releaseDate}
-              <br/>
-              <strong>Genres: </strong> {genres}
-              
-        
-              
+              <br />
+              <strong>Genres: </strong> {genres?.join(",")}
             </Typography>
           </div>
-          
-
-          
         </div>
       </CardContent>
     </Card>

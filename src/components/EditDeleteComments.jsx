@@ -18,6 +18,7 @@ import Swal from "sweetalert2";
 import axios from "axios";
 import { TextField } from "@mui/material";
 import Button from "@mui/material/Button";
+import Rating from "@mui/material/Rating";
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -36,6 +37,11 @@ export default function EditReviewCard(props) {
   const [editedContent, setEditedContent] = useState(props.comment.body);
   const [avatar, setAvatar] = useState({});
   const isMobile = useMediaQuery("(max-width:800px)");
+  const [value, setValue] = useState(props.comment.score.$numberDecimal);
+
+  const handleStars = (event, newValue) => {
+    setValue(newValue);
+  };
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -101,6 +107,7 @@ export default function EditReviewCard(props) {
     });
     const data = {
       data: body,
+      score: value,
     };
     const resp = await updateR.put(
       `http://localhost:3000/api/reviews/${id}`,
@@ -150,6 +157,7 @@ export default function EditReviewCard(props) {
               {generateShortDescription(props.comment.body, 200)}
             </Typography>
           </CardContent>
+
           <CardActions disableSpacing>
             <h4>Read More</h4>
             <ExpandMore
@@ -174,6 +182,11 @@ export default function EditReviewCard(props) {
                     multiline
                     size="medium"
                   />
+                  <Rating
+                    name="simple-controlled"
+                    value={value}
+                    onChange={handleStars}
+                  />
                   <Stack
                     sx={{ marginTop: "10px", justifyContent: "center" }}
                     spacing={2}
@@ -193,7 +206,14 @@ export default function EditReviewCard(props) {
                   </Stack>
                 </form>
               ) : (
-                <Typography paragraph>{props.comment.body}</Typography>
+                <>
+                  <Typography paragraph>{props.comment.body}</Typography>
+                  <Rating
+                    name="readOnly "
+                    value={props.comment.score.$numberDecimal}
+                    readOnly
+                  />
+                </>
               )}
             </CardContent>
           </Collapse>
