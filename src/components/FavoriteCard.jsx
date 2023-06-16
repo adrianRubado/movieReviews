@@ -8,25 +8,29 @@ import Typography from "@mui/joy/Typography";
 
 const FavoriteCard = (props) => {
   return (
-    <Card variant="outlined" sx={{ width: 320, marginTop: 700 }}>
+    <Card variant="outlined" sx={{ width: 320, margin: 10 }}>
       <CardOverflow>
         <AspectRatio ratio="2">
-          <img src="https://images.unsplash.com/photo-1532614338840-ab30cf10ed36?auto=format&fit=crop&w=318" />
+          <img
+            src={props.fc.poster}
+            alt={props.fc.title}
+            style={{ objectFit: "cover", width: "100%", height: "100%" }}
+          />
         </AspectRatio>
       </CardOverflow>
       <CardContent>
         <Typography level="h2" fontSize="md">
-          Batman
+          {props.fc.title}
         </Typography>
         <Typography level="body2" sx={{ mt: 0.5 }}>
-          8
+          {props.fc.score.$numberDecimal.toString()}
         </Typography>
       </CardContent>
       <CardOverflow variant="soft" sx={{ bgcolor: "background.level1" }}>
         <Divider inset="context" />
         <CardContent orientation="horizontal">
           <Typography level="body3" fontWeight="md" textColor="text.secondary">
-            hola
+            {props.fc.genres.join(", ")}
           </Typography>
         </CardContent>
       </CardOverflow>
