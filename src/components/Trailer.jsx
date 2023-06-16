@@ -20,8 +20,8 @@ const Trailer = (props) => {
           controls="true"
           playing={false}
           url={props.trailer}
-          width="100%"
-          height="100%"
+          width="90%"
+          height="90%"
         />
       ) : null}
     </div>

@@ -5,10 +5,16 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Comment from "../components/Comment";
 import axios from "axios";
+import Rating from '@mui/material/Rating';
 
 const CommentBox = (props) => {
   const [comment, setComment] = useState("");
   const [reviews, setReviews] = useState([]);
+
+  const [value, setValue] = useState(0);
+  const handleStars = (event, newValue) => {
+    setValue(newValue);
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -67,6 +73,18 @@ const CommentBox = (props) => {
           onChange={handleChange}
         />
         <br />
+        <div>
+        
+   {  /*
+Aca estan las estrellas 
+*/}
+      <Rating
+        name="simple-controlled"
+        value={value}
+        onChange={handleStars}
+      />
+
+    </div>
         <Button style={{ marginTop: "3px" }} variant="contained" type="submit">
           Submit
         </Button>

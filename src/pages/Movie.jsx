@@ -47,7 +47,7 @@ const Movie = () => {
         display={isMobile ? "column" : "flex"}
       >
         <Trailer trailer={movie.trailerLink} />
-        <About plot={movie.plot} title={movie.title} score={score} />
+        <About plot={movie.plot} title={movie.title} score={score} releaseDate={movie.releaseDate} genres={movie.genres}/>
       </Box>
 
       <div
@@ -61,6 +61,7 @@ const Movie = () => {
           flex: "column",
         }}
       >
+       
         <ReviewBox movieId={params.movieId} title={movie.title} />
       </div>
     </div>
