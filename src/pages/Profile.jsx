@@ -24,24 +24,41 @@ const Profile = () => {
       <Container maxWidth="md" sx={{ marginTop: "80px" }}>
         <Grid container spacing={2}>
           <Grid item xs={12}>
-            <Typography variant="h4" align="center" gutterBottom>
-              Profile
-            </Typography>
+          <br/>
+          <br/>
+          <Typography variant="h4" align="center" sx={{ marginBottom: "20px", fontWeight: "bold", color: "#333" }}>
+          My Profile
+          </Typography>
+          
+          <br/>
+          <br/>
+          <hr/>
           </Grid>
+          
 
           <Grid item xs={12} sm={8}>
-            <Typography variant="h6" gutterBottom>
-              Name: {user.name}
-            </Typography>
-            <Typography variant="h6" gutterBottom>
-              Last name: {user.lastName}
-            </Typography>
-
-            <Typography variant="h6" gutterBottom>
-              Email: {user.email}
-            </Typography>
-          </Grid>
+  <Typography variant="h6" sx={{ fontWeight: "bold", marginBottom: "10px" }}>
+    Name:
+  </Typography>
+  <Typography variant="body1" sx={{ marginBottom: "20px" }}>
+    {user.name}
+  </Typography>
+  <Typography variant="h6" sx={{ fontWeight: "bold", marginBottom: "10px" }}>
+    Last Name:
+  </Typography>
+  <Typography variant="body1" sx={{ marginBottom: "20px" }}>
+    {user.lastName}
+  </Typography>
+  <Typography variant="h6" sx={{ fontWeight: "bold", marginBottom: "10px" }}>
+    Email:
+  </Typography>
+  <Typography variant="body1" sx={{ marginBottom: "20px" }}>
+    {user.email}
+  </Typography>
+</Grid>
+          
         </Grid>
+        <hr/>
       </Container>
     </>
   );
