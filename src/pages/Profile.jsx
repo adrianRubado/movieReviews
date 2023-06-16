@@ -1,12 +1,51 @@
 import React from "react";
 import Navbar from "../components/Navbar";
-import Swal from "sweetalert2";
+import { Container, Typography, Grid, Avatar, Button } from "@mui/material";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 const Profile = () => {
+  const [user, setUser] = useState({})
+
+  const getUser = async () => {
+    const user = axios.create({
+      withCredentials: true,
+    });
+const resp= await user.get("http://localhost:3000/api/profile")
+ console.log(resp.data)
+}
+  useEffect(() => {
+    getUser()
+  }, [])
+  
+
   return (
     <>
       <Navbar />
-      <div>Profile</div>
+      <Container maxWidth="md" sx={{ marginTop: "80px" }}>
+        <Grid container spacing={2}>
+          <Grid item xs={12}>
+            <Typography variant="h4" align="center" gutterBottom>
+              Profile
+            </Typography>
+          </Grid>
+          
+          <Grid item xs={12} sm={8}>
+            <Typography variant="h6" gutterBottom>
+              Name: 
+            </Typography>
+            <Typography variant="h6" gutterBottom>
+            Last name: 
+
+            </Typography>
+
+            <Typography variant="h6" gutterBottom>
+              Email: 
+            </Typography>
+            
+          </Grid>
+        </Grid>
+      </Container>
     </>
   );
 };

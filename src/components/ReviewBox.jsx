@@ -11,10 +11,12 @@ const CommentBox = (props) => {
   const [comment, setComment] = useState("");
   const [reviews, setReviews] = useState([]);
 
+
   const [value, setValue] = useState(0);
   const handleStars = (event, newValue) => {
     setValue(newValue);
   };
+
 
   const handleSubmit = async (event) => {
     event.preventDefault();
