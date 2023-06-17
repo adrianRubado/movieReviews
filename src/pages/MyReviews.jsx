@@ -21,7 +21,6 @@ const MyReviews = () => {
       withCredentials: true,
     });
     const resp = await reviews.get(`http://localhost:3000/api/user/reviews`);
-    console.log(resp.data);
     setMyReviews(resp.data.reverse());
     if (resp.data.length == 0) {
       setEmptyReviews(true);

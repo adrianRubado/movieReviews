@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useEffect } from "react";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -13,6 +14,7 @@ import { useForm } from "react-hook-form";
 import popcorn from "../assets/popcorn.png";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { useIsAuthenticated } from "react-auth-kit";
 
 function Copyright(props) {
   return (
@@ -42,6 +44,7 @@ export default function SignUp() {
     handleSubmit,
     formState: { errors },
   } = useForm();
+  const isAuthenticated = useIsAuthenticated();
 
   const navigate = useNavigate();
 
@@ -50,6 +53,12 @@ export default function SignUp() {
     console.log(resp);
     navigate("/thankForRegistering");
   };
+
+  useEffect(() => {
+    if (isAuthenticated()) {
+      navigate("/home");
+    }
+  }, []);
 
   return (
     <ThemeProvider theme={defaultTheme}>
