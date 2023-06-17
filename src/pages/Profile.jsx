@@ -12,6 +12,7 @@ const Profile = () => {
       withCredentials: true,
     });
     const resp = await user.get("http://localhost:3000/api/profile");
+    console.log(resp.data);
     setUser(resp.data);
   };
   useEffect(() => {

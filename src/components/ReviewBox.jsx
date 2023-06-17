@@ -11,12 +11,10 @@ const CommentBox = (props) => {
   const [comment, setComment] = useState("");
   const [reviews, setReviews] = useState([]);
 
-
   const [value, setValue] = useState(0);
   const handleStars = (event, newValue) => {
     setValue(newValue);
   };
-
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -52,7 +50,7 @@ const CommentBox = (props) => {
       `http://localhost:3000/api/movie/${props.movieId}/reviews`
     );
     console.log(resp.data);
-    setReviews(resp.data);
+    setReviews(resp.data.reverse());
   };
 
   useEffect(() => {
