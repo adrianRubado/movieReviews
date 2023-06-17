@@ -10,8 +10,8 @@ import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import { blue } from "@mui/material/colors";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { useMediaQuery } from "@mui/material";
+import Rating from "@mui/material/Rating";
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -72,6 +72,12 @@ export default function RecipeReviewCard(props) {
               {generateShortDescription(props.comment.body, 200)}
             </Typography>
           </CardContent>
+
+          <Rating
+            name="readOnly "
+            value={props.comment.score.$numberDecimal}
+            readOnly
+          />
           <CardActions disableSpacing>
             <h4>Read More</h4>
             <ExpandMore

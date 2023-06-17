@@ -5,7 +5,7 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Comment from "../components/Comment";
 import axios from "axios";
-import Rating from '@mui/material/Rating';
+import Rating from "@mui/material/Rating";
 
 const CommentBox = (props) => {
   const [comment, setComment] = useState("");
@@ -22,8 +22,9 @@ const CommentBox = (props) => {
       imdbId: props.movieId,
       title: props.title,
       body: comment,
-      score: 5.0,
+      score: value,
     };
+    console.log(value);
     const createReview = axios.create({
       withCredentials: true,
     });
@@ -32,6 +33,7 @@ const CommentBox = (props) => {
       data
     );
     console.log(resp.data);
+    setValue(0);
     // Add your logic here to handle the submission of the comment
     // You can send the comment to an API, update the state, etc.
     console.log("Submitted comment:", comment);
@@ -74,17 +76,15 @@ const CommentBox = (props) => {
         />
         <br />
         <div>
-        
-   {  /*
+          {/*
 Aca estan las estrellas 
 */}
-      <Rating
-        name="simple-controlled"
-        value={value}
-        onChange={handleStars}
-      />
-
-    </div>
+          <Rating
+            name="simple-controlled"
+            value={value}
+            onChange={handleStars}
+          />
+        </div>
         <Button style={{ marginTop: "3px" }} variant="contained" type="submit">
           Submit
         </Button>
