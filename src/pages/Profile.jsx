@@ -5,19 +5,18 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 const Profile = () => {
-  const [user, setUser] = useState({})
+  const [user, setUser] = useState({});
 
   const getUser = async () => {
     const user = axios.create({
       withCredentials: true,
     });
-const resp= await user.get("http://localhost:3000/api/profile")
- console.log(resp.data)
-}
+    const resp = await user.get("http://localhost:3000/api/profile");
+    setUser(resp.data);
+  };
   useEffect(() => {
-    getUser()
-  }, [])
-  
+    getUser();
+  }, []);
 
   return (
     <>
@@ -29,20 +28,18 @@ const resp= await user.get("http://localhost:3000/api/profile")
               Profile
             </Typography>
           </Grid>
-          
+
           <Grid item xs={12} sm={8}>
             <Typography variant="h6" gutterBottom>
-              Name: 
+              Name: {user.name}
             </Typography>
             <Typography variant="h6" gutterBottom>
-            Last name: 
-
+              Last name: {user.lastName}
             </Typography>
 
             <Typography variant="h6" gutterBottom>
-              Email: 
+              Email: {user.email}
             </Typography>
-            
           </Grid>
         </Grid>
       </Container>
