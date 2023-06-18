@@ -32,7 +32,7 @@ const CommentBox = (props) => {
       "http://localhost:3000/api/review",
       data
     );
-    console.log(resp.data);
+
     setValue(0);
     // Add your logic here to handle the submission of the comment
     // You can send the comment to an API, update the state, etc.
@@ -49,7 +49,7 @@ const CommentBox = (props) => {
     const resp = await axios.get(
       `http://localhost:3000/api/movie/${props.movieId}/reviews`
     );
-    console.log(resp.data);
+
     setReviews(resp.data.reverse());
   };
 

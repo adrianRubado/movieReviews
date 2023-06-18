@@ -18,7 +18,6 @@ const Movie = () => {
     const resp = await axios.get(
       `http://localhost:3000/api/movies/${params.movieId}`
     );
-    console.log(resp.data);
     setMovie(resp.data);
     setScore(resp.data.score.$numberDecimal);
   };
@@ -47,7 +46,14 @@ const Movie = () => {
         display={isMobile ? "column" : "flex"}
       >
         <Trailer trailer={movie.trailerLink} />
-        <About plot={movie.plot} title={movie.title} score={score} releaseDate={movie.releaseDate} genres={movie.genres}/>
+        <About
+          imdbId={movie.imdbId}
+          plot={movie.plot}
+          title={movie.title}
+          score={score}
+          releaseDate={movie.releaseDate}
+          genres={movie.genres}
+        />
       </Box>
 
       <div
@@ -61,7 +67,6 @@ const Movie = () => {
           flex: "column",
         }}
       >
-       
         <ReviewBox movieId={params.movieId} title={movie.title} />
       </div>
     </div>

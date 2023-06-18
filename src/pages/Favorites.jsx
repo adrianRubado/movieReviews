@@ -14,9 +14,11 @@ const Favorites = () => {
   const [movies, setMovies] = useState([]);
 
   const getMovies = async () => {
-    const resp = await axios.get(
-      `http://localhost:3000/api/movies?pageSize=6&page=1`
-    );
+    const fav = axios.create({
+      withCredentials: true,
+    });
+    const resp = await fav.get(`http://localhost:3000/api/favorites`);
+    console.log(resp.data);
     setMovies(resp.data);
   };
   useEffect(() => {
