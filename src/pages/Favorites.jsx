@@ -12,6 +12,7 @@ import FavoriteCard from "../components/FavoriteCard";
 
 const Favorites = () => {
   const [movies, setMovies] = useState([]);
+  const [favs, setFavs] = useState(false);
 
   const getMovies = async () => {
     const fav = axios.create({
@@ -20,6 +21,10 @@ const Favorites = () => {
     const resp = await fav.get(`http://localhost:3000/api/favorites`);
     console.log(resp.data);
     setMovies(resp.data);
+
+    if (resp.data.length == 0) {
+      setFavs(true);
+    }
   };
   useEffect(() => {
     Swal.close();
@@ -48,13 +53,15 @@ const Favorites = () => {
       >
         <Navbar />
 
-        {movies.map((fc, index) => {
+        {movies?.map((fc, index) => {
           return (
             <Link to={`/movie/${fc.imdbId}`} style={{ textDecoration: "none" }}>
               <FavoriteCard fc={fc} sx={{ margin: "8px" }} />
             </Link>
           );
         })}
+
+        {favs && <h1>No favorites found</h1>}
       </Box>
     </>
   );
