@@ -65,7 +65,7 @@ export default function RecipeReviewCard(props) {
                 <MoreVertIcon />
               </IconButton>
             } */
-            title={props.comment.title}
+            title={props.comment.fullName}
           />
           <CardContent>
             <Typography variant="body2" color="text.secondary">
