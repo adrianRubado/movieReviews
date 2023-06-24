@@ -20,7 +20,10 @@ const Favorites = () => {
     });
     const resp = await fav.get(`http://localhost:3000/api/favorites`);
     console.log(resp.data);
-    setMovies(resp.data);
+
+    if (resp.data.length > 0) {
+      setMovies(resp.data);
+    }
 
     if (resp.data.length == 0) {
       setFavs(true);
