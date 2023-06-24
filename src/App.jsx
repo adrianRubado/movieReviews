@@ -78,6 +78,7 @@ function App() {
         <Route path="/forgot-password" element={<ForgotPw />} />
         <Route path="/forgot-password/check-mail" element={<CheckMail />} />
         <Route path="/restore-password" element={<RestorePassw />} />
+
         {/* <Route path="/forgot-password" element={<ForgotPw />} /> */}
       </Routes>
     </>
