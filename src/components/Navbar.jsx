@@ -28,10 +28,10 @@ function Navbar() {
       link: "/home",
     },
 
-    {
+    /*  {
       name: "About",
       link: "/about",
-    },
+    }, */
 
     {
       name: "My reviews",
