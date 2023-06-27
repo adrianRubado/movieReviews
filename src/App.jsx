@@ -62,7 +62,14 @@ function App() {
           }
         />
 
-        <Route path="/about" element={<About />} />
+        <Route
+          path="/about"
+          element={
+            <RequireAuth loginPath="/sign-in">
+              <About />
+            </RequireAuth>
+          }
+        />
 
         <Route
           path="/movie/:movieId"
