@@ -15,7 +15,6 @@ const About = () => {
           display: "flex",
           flexWrap: "wrap",
           gap: "16px",
-          height: "100vh",
         }}
         style={{
           backgroundColor: "#282c34",
@@ -29,22 +28,12 @@ const About = () => {
         }}
       >
         <Navbar />
-        <Typography
-          variant="h4"
-          component="h1"
-          gutterBottom
-          style={{ marginTop: "50px" }}
-        >
+        <Typography variant="h4" component="h1" style={{ marginTop: "60px" }}>
           About Us
         </Typography>
         <main>
           <section style={{ marginLeft: "25px" }}>
-            <Typography
-              variant="h5"
-              component="h2"
-              fontWeight="bold"
-              gutterBottom
-            >
+            <Typography variant="h5" component="h2" fontWeight="bold">
               Our Story
             </Typography>
             <Typography variant="body1" component="p">
@@ -71,18 +60,13 @@ const About = () => {
           </section>
 
           <section style={{ marginTop: "40px", marginLeft: "25px" }}>
-            <Typography
-              variant="h5"
-              component="h2"
-              fontWeight="bold"
-              gutterBottom
-            >
+            <Typography variant="h5" component="h2" fontWeight="bold">
               Our dev Team
             </Typography>
             <ul>
+              <li>Adrian Rubado</li>
               <li>Matias Broggia</li>
               <li>Federico Cortes</li>
-              <li>Adrian Rubado</li>
               <li>Ursula Cordero</li>
               <li>Lucio Lama</li>
               <li>Corina Fontana Medina</li>
