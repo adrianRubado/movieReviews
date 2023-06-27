@@ -38,7 +38,7 @@ const Favorites = () => {
           display: "flex",
           flexWrap: "wrap",
           gap: "16px",
-          height: "100vh",
+          minHeight: "100vh",
         }}
         style={{
           backgroundColor: "#282c34",

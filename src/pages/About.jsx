@@ -15,6 +15,7 @@ const About = () => {
           display: "flex",
           flexWrap: "wrap",
           gap: "16px",
+          minHeight: "100vh",
         }}
         style={{
           backgroundColor: "#282c34",
@@ -64,7 +65,7 @@ const About = () => {
               Our dev Team
             </Typography>
             <ul>
-              <li>Adrian Rubado</li>
+              <li>Adrián Rubado</li>
               <li>Matias Broggia</li>
               <li>Federico Cortes</li>
               <li>Ursula Cordero</li>
